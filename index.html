@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connect Four</title>
+    <link rel="stylesheet" href="connect4.css" />
+  </head>
+
+  <body>
+    <h1 id="title" class="animated">Connect Four</h1>
+
+    <div id="player-box" class="animated">
+      <h3 class="curr-player player-1">
+        Current Player: <span class="curr-player-number">1</span>
+      </h3>
+    </div>
+
+    <div id="game">
+      <table id="board"></table>
+    </div>
+    <div id="restart-div">
+        <button id="restart-btn" class="hidden">Restart</button>
+    </div>
+
+    <script src="connect4.js"></script>
+  </body>
+</html>
