@@ -1,0 +1,159 @@
+/* basic html styling */
+#title {
+  text-align: center;
+  margin: 10px;
+  padding-top: 10px;
+  animation: titleAnimation 5s infinite;
+}
+
+#player-box {
+  border: solid 2px #333;
+  display: inline-block;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+body {
+  background-color: #f1c40f;
+  background-image: linear-gradient(to bottom right, #c0392b, #2980b9);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* game board table */
+
+#game {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); /* Add a translucent white background */
+}
+
+#board td {
+  width: 60px; /* Increase the width of the table cells */
+  height: 60px; /* Increase the height of the table cells */
+  border: solid 2px #2980b9;
+}
+
+/* pieces are div within game table cells: draw as colored circles */
+
+.piece {
+  margin: 5px;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+}
+
+.piece--player-1 {
+  background-color: rgba(255, 0, 0, 0.7);
+}
+
+.piece--player-2 {
+  background-color: rgba(0, 0, 255, 0.7);
+}
+
+.curr-player.player-1 {
+  color: red;
+}
+
+.curr-player.player-2 {
+  color: blue;
+}
+
+.piece.win {
+  animation-name: win-animation;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.hidden {
+  display: restart-btn;
+}
+/* column-top is table row of clickable areas for each column */
+
+#column-top td {
+  border: dashed 1px black;
+}
+
+#column-top td:hover {
+  background-color: red;
+}
+
+/* Animation for dropping game pieces */
+@keyframes dropAnimation {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animation for winning game pieces */
+@keyframes win-animation {
+  0% {
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Animation for player turn change */
+@keyframes switchPlayerAnimation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 2;
+  }
+}
+
+@keyframes titleAnimation {
+  0% {
+    color: red;
+  }
+  25% {
+    color: orange;
+  }
+  50% {
+    color: green;
+  }
+  75% {
+    color: yellow;
+  }
+  100% {
+    color: purple;
+  }
+}
+
+/* Apply animations to relevant elements */
+
+/* Animate dropping game pieces */
+.piece {
+  animation: dropAnimation 0.4s ease-in-out;
+}
+
+/* Animate winning game pieces */
+.piece--win {
+  animation: winAnimation 0.3s infinite;
+}
+
+/* Animate player turn change */
+.curr-player {
+  animation: switchPlayerAnimation 0.5s ease-in-out;
+}
